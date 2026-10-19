@@ -141,8 +141,13 @@ This project is for educational and portfolio purposes.
 
 ---
 
-## 👤 Author
+## Author
 
-**Devam Shah**  
-📧 [devamshah26@gmail.com]  
-🔗 [LinkedIn](https://www.linkedin.com/in/devam-a-shah/) | [GitHub](https://github.com/dshah-ds)
+**Devam Shah** · Data Scientist & Analytics Engineer
+
+- Website: [devam-shah.com](https://devam-shah.com)
+- LinkedIn: [linkedin.com/in/devam-a-shah](https://www.linkedin.com/in/devam-a-shah)
+- GitHub: [github.com/dshah-ds](https://github.com/dshah-ds)
+- Medium: [@devamshah26](https://medium.com/@devamshah26)
+- Blog: [One Notebook at a Time](https://onenotebookatatime.blogspot.com)
+
