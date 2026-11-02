@@ -21,7 +21,7 @@ This project analyzes restaurant data across **98 cities in India** with over **
 |---|---|
 | **Source** | Food Delivery Dataset (`food_dely.csv`) |
 | **Original Size** | 211,944 rows × 26 columns |
-| **After Cleaning** | 60,011 rows × 16 columns |
+| **After Cleaning** | 60,012 rows × 17 columns |
 | **Coverage** | 98 cities across India |
 
 You can also download the dataset from - 
@@ -34,12 +34,13 @@ https://drive.google.com/file/d/1u2DfkYnux4E_IraLVBd0LFSFp-xR9t5i/view?usp=shari
 
 ## 🔍 Key Findings
 
-- 💸 **Higher price ≠ Higher rating** — No strong correlation between cost and customer ratings
-- 📸 **Photos drive engagement** — More restaurant photos → more votes → more business
+- 💸 **Higher price ≠ Higher rating** — Cost and rating are only weakly correlated (r = 0.25)
+- 📸 **Photos go with engagement** — Photo count and votes are strongly correlated (r = 0.68); the data can't say which causes which
 - 🚗 **Delivery is underutilized** — Only a minority of restaurants offer delivery (first-mover opportunity)
-- 🗺️ **Northeast region** leads in restaurant density and cuisine variety
-- 🏷️ **Price Range 3** provides the best rating-to-cost ratio
-- ⭐ **Popular = Well-rated** — Higher vote count strongly correlates with better ratings
+- 🗺️ **Northeast quadrant** has the most restaurants (19,087). "Northeast" here means north and east of the dataset's average latitude/longitude (e.g. New Delhi, Kolkata, Lucknow), not India's Northeast states
+- 🏷️ **Price Range 3** rates nearly as high as Range 4 at a lower price
+- ⭐ **Popular ≠ automatically well-rated** — Votes and rating are only weakly correlated (r = 0.28): high-vote restaurants nearly all rate well, but many well-rated ones have few votes
+- 🚚 **Delivery** — 31.2% of restaurants offer it (18,698 of 60,012)
 
 ---
 
@@ -62,7 +63,7 @@ https://drive.google.com/file/d/1u2DfkYnux4E_IraLVBd0LFSFp-xR9t5i/view?usp=shari
 food-delivery-eda/
 │
 ├── miniProject.ipynb       # Main EDA notebook
-├── food_dely.csv           # Dataset
+├── food_dely.csv           # Dataset (not included — download from the link above)
 ├── README.md               # Project documentation
 ├── requirements.txt        # Python dependencies
 └── .gitignore              # Git ignore rules
@@ -108,7 +109,7 @@ jupyter notebook miniProject.ipynb
 | **3. Data Preparation** | 11 irrelevant columns dropped, copy created |
 | **4. EDA Basics** | Shape, dtypes, duplicates checked |
 | **5. Missing Values** | Null values filled with `'unknown'` (<5% threshold) |
-| **6. Feature Engineering** | `average_cost_for_one` derived; `region` column created using lat/lon midpoints |
+| **6. Feature Engineering** | `average_cost_for_one` derived; `region` column created by splitting at the average latitude/longitude |
 | **7. Correlation Analysis** | Scatter plots, heatmaps, boxplots, count plots |
 | **8. Business Insights** | Actionable recommendations for owners |
 | **9. Extra Insights** | City-level counts, cuisine splits |
@@ -118,13 +119,13 @@ jupyter notebook miniProject.ipynb
 ## 💡 Business Insights Summary
 
 ### For Existing Restaurant Owners
-- Encourage photo uploads via discounts — photo count directly correlates with votes and business
+- Encourage photo uploads via discounts — photo count is strongly correlated with votes
 - Enable delivery — most restaurants don't offer it, creating a first-mover advantage
-- Keep prices economical to maximize order volume and engagement
+- Keep prices economical: most restaurants sit in price ranges 1–2 (note: cost and votes are weakly *positively* correlated, r = +0.27, so cheaper doesn't automatically mean more votes)
 
 ### For New Business Owners
-- North Indian cuisine is the safest volume bet; Continental scores highest ratings
-- Target the Northeast region — highest concentration of restaurant activity and cuisine variety
+- North Indian cuisine looks like the safest volume bet and Continental a high-rated specialty (a hypothesis; cuisine-level ratings aren't computed in the notebook yet)
+- The Northeast quadrant (New Delhi, Kolkata, Lucknow and nearby) has the most restaurant activity
 - Aim for Price Range 3 — it hits the "premium feel" without the harsh expectations of Range 4
 
 ---
